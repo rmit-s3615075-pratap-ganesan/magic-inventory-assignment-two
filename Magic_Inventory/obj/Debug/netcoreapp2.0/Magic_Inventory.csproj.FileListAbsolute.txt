@@ -1,0 +1,11 @@
+/Users/prasanthi/Documents/Web Development Technology/Magic_Inventory/Magic_Inventory/bin/Debug/netcoreapp2.0/Magic_Inventory.deps.json
+/Users/prasanthi/Documents/Web Development Technology/Magic_Inventory/Magic_Inventory/bin/Debug/netcoreapp2.0/Magic_Inventory.runtimeconfig.json
+/Users/prasanthi/Documents/Web Development Technology/Magic_Inventory/Magic_Inventory/bin/Debug/netcoreapp2.0/Magic_Inventory.runtimeconfig.dev.json
+/Users/prasanthi/Documents/Web Development Technology/Magic_Inventory/Magic_Inventory/bin/Debug/netcoreapp2.0/Magic_Inventory.dll
+/Users/prasanthi/Documents/Web Development Technology/Magic_Inventory/Magic_Inventory/bin/Debug/netcoreapp2.0/Magic_Inventory.pdb
+/Users/prasanthi/Documents/Web Development Technology/Magic_Inventory/Magic_Inventory/obj/Debug/netcoreapp2.0/Magic_Inventory.csprojResolveAssemblyReference.cache
+/Users/prasanthi/Documents/Web Development Technology/Magic_Inventory/Magic_Inventory/obj/Debug/netcoreapp2.0/Magic_Inventory.csproj.CoreCompileInputs.cache
+/Users/prasanthi/Documents/Web Development Technology/Magic_Inventory/Magic_Inventory/obj/Debug/netcoreapp2.0/Magic_Inventory.AssemblyInfoInputs.cache
+/Users/prasanthi/Documents/Web Development Technology/Magic_Inventory/Magic_Inventory/obj/Debug/netcoreapp2.0/Magic_Inventory.AssemblyInfo.cs
+/Users/prasanthi/Documents/Web Development Technology/Magic_Inventory/Magic_Inventory/obj/Debug/netcoreapp2.0/Magic_Inventory.dll
+/Users/prasanthi/Documents/Web Development Technology/Magic_Inventory/Magic_Inventory/obj/Debug/netcoreapp2.0/Magic_Inventory.pdb

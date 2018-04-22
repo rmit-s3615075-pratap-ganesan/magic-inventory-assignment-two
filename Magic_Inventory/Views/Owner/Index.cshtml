@@ -1,0 +1,42 @@
+﻿@model IEnumerable<OwnerInventory>
+
+@{
+    ViewBag.Title = "Owner Inventory";
+}
+
+<h2>Owner Inventory</h2>
+
+<form method="get">
+    <p>
+        Product Name: <input name="productID" value="@ViewBag.ProductID" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductID)
+            </th>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.StockLevel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductID)
+                </td>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.StockLevel)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
