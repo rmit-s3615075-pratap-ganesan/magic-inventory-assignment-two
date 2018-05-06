@@ -24,13 +24,13 @@ namespace Magic_Inventory.Controllers
         public async Task<IActionResult> Index(string productName)
         {
             // Eager loading the Product table - join between OwnerInventory and the Product table.
-            var query = _context.OwnerInventory;
+            var query = _context.OwnerInventory.Include(x => x.Product).Select(x => x);
 
             if (!string.IsNullOrWhiteSpace(productName))
             {
                 // Adding a where to the query to filter the data.
                 // Note for the first request productName is null thus the where is not always added.
-                //query = query.Where(x => x.ProductID.Contains(productName));
+                query = query.Where(x => x.Product.Name.Contains(productName));
 
                 // Storing the search into ViewBag to populate the textbox with the same value for convenience.
                 ViewBag.ProductName = productName;
