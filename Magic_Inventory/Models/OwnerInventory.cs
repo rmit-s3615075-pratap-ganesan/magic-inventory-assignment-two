@@ -4,9 +4,11 @@ namespace Magic_Inventory.Models
 {
     public class OwnerInventory
     {
-        [Key]     
+        [Key, ForeignKey("Product"), Display(Name = "Product ID")]
         public int ProductID { get; set; }
+        public Product Product { get; set; }
 
+        [Display(Name = "Stock Level")]
         public int StockLevel { get; set; }
     }
 }
