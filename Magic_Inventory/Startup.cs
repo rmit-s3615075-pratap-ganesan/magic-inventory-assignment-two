@@ -46,7 +46,7 @@ namespace Magic_Inventory
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Owner}/{action=Welcome}/{id?}");
+                    template: "{controller=Owner}/{action=Index}/{id?}");
             });
         }
     }
