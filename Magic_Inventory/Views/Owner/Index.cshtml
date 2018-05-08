@@ -1,37 +1,39 @@
-﻿@model IEnumerable<OwnerInventory>
+﻿@model PaginatedList<OwnerInventory>
 
 @{
     ViewBag.Title = "Owner Inventory";
 }
 
 <h2>Owner Inventory</h2>
-
-<form method="get">
-    <p>
-        Product Name: <input name="productID" value="@ViewBag.ProductID" />
-        <input type="submit" value="Filter" />
-    </p>
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by Product Name: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
 </form>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ProductID)
+                Product ID
+            </th>        
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Product Name</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Product.Name)
+                Price
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Product.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StockLevel)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["QtySortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Stock Level</a>
             </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody>        
         @foreach(var item in Model) {
             <tr>
                 <td>
@@ -46,7 +48,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.StockLevel)
                 </td>
-            </tr>
+             </tr>
         }
     </tbody>
 </table>

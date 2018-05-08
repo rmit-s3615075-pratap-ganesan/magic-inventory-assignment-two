@@ -26,42 +26,60 @@ namespace Magic_Inventory.Controllers
 
         // Auto-parsed variables coming in from the request - there is a form on the page to send this data.
         public async Task<IActionResult> Index(
-           string sortOrder, string currentFilter,
-            string productName, int? page)
+            string sortOrder, string currentFilter,
+            string searchString, int? page)
         {
-            ViewBag.CurrentSort = sortOrder;
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["QtySortParm"] = sortOrder == "Qty" ? "qty_desc" : "Qty";
 
-            // Eager loading the Product table - join between OwnerInventory and the Product table.
-            var query = _context.OwnerInventory.Include(x => x.Product).Select(x => x);
-
-            if (!string.IsNullOrWhiteSpace(productName))
-            {
-                // Adding a where to the query to filter the data.
-                // Note for the first request productName is null thus the where is not always added.
-                query = query.Where(x => x.Product.Name.Contains(productName));
-
-                // Storing the search into ViewBag to populate the textbox with the same value for convenience.
-                ViewBag.ProductName = productName;
-            }
-
-            if (productName != null)
+            if (searchString != null)
             {
                 page = 1;
             }
             else
             {
-                productName = currentFilter;
+                searchString = currentFilter;
+            }
+            ViewData["CurrentFilter"] = searchString;
+
+
+
+            // Eager loading the Product table - join between OwnerInventory and the Product table.
+            var query = _context.OwnerInventory.Include(x => x.Product).Select(x => x);
+
+            if (!string.IsNullOrWhiteSpace(searchString))
+            {
+                query = query.Where(x => x.Product.Name.Contains(searchString));
+
             }
 
-            ViewBag.CurrentFilter = productName;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    query = query.OrderByDescending(s => s.Product.Name);
+                    break;
+                case "Qty":
+                    query = query.OrderBy(s => s.StockLevel);
+                    break;
+                case "date_desc":
+                    query = query.OrderByDescending(s => s.StockLevel);
+                    break;
+                default:
+                    query = query.OrderBy(s => s.Product.Name);
+                    break;
+            }
 
             int pageSize = 3;
-            int pageNumber = (page ?? 1);
+            //var viewModel = new OwnerInventoryViewModel
+            //{
+            //    Inventory = await PaginatedList<OwnerInventory>
+            //       .CreateAsync(query.AsNoTracking(), page ?? 1, pageSize)
+            //};
 
-            // Adding an order by to the query for the Product name.
-            //// query = query.OrderBy(x => x.ProductID);
+            //// Passing a List<OwnerInventory> model object to the View.
+            //return View(viewModel);
 
-            // Passing a List<OwnerInventory> model object to the View.
             return View(await PaginatedList<OwnerInventory>
                         .CreateAsync(query.AsNoTracking(), page ?? 1, pageSize));
         }
