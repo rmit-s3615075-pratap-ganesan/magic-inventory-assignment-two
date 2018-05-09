@@ -1,0 +1,19 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Log">
+    <Files>
+      <File FileName="Controllers/OwnerController.cs" Line="1" Column="1" />
+      <File FileName="Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="Models/OwnerInventory.cs" Line="1" Column="1" />
+      <File FileName="Data/InventoryContext.cs" Line="1" Column="1" />
+      <File FileName="Views/Home/Contact.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Owner/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Log" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
